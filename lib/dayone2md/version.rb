@@ -1,3 +1,3 @@
-module Dayone2md
-  VERSION = "0.0.1"
+module DayOne2MD
+  VERSION = '0.0.1'
 end
