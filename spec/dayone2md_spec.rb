@@ -1,11 +1,14 @@
-require "spec_helper"
+require 'spec_helper'
 
-RSpec.describe Dayone2md do
-  it "has a version number" do
-    expect(Dayone2md::VERSION).not_to be nil
-  end
+describe 'dayone2md' do
+  let(:command) { 'bundle exec exe/dayone2md' }
+  subject { `#{command}` }
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  context '--version' do
+    subject { `#{command} --version`.strip }
+
+    it 'returns current version' do
+      expect(subject).to eq DayOne2MD::VERSION
+    end
   end
 end

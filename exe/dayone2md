@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+
+require 'dayone2md'
+
+begin
+  opts = Slop.parse do |o|
+    o.banner = 'usage: dayone2md [options]'
+    o.on '-V', '--version', 'Display current version' do
+      puts DayOne2MD::VERSION
+      exit
+    end
+    o.on '-h', '--help', 'Print this help'
+  end
+rescue Slop::Error => e
+  warn e.message
+  exit 1
+end
+
+if opts[:help]
+  puts opts
+  exit
+end

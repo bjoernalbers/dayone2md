@@ -1,5 +1,3 @@
-require "dayone2md/version"
+require 'slop'
 
-module Dayone2md
-  # Your code goes here...
-end
+require 'dayone2md/version'
