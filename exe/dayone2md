@@ -6,6 +6,8 @@ require 'dayone2md'
 begin
   opts = Slop.parse do |o|
     o.banner = 'usage: dayone2md [options]'
+    o.string '-i', '--input', 'Input dir (DayOne Journal directory)'
+    o.string '-o', '--output', 'Output directory'
     o.on '-V', '--version', 'Display current version' do
       puts DayOne2MD::VERSION
       exit
@@ -21,3 +23,5 @@ if opts[:help]
   puts opts
   exit
 end
+
+DayOne2MD::Converter.new(opts).run
